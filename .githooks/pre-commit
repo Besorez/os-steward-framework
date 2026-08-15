@@ -1,0 +1,6 @@
+#!/bin/sh
+# OS Steward pre-commit hook: deterministic privacy scan of staged files.
+# Blocks the commit (non-zero exit) if likely private machine data is staged.
+repo_root="$(git rev-parse --show-toplevel)"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$repo_root/scripts/privacy-guard.ps1"
+exit $?

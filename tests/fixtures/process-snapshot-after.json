@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "category": "processes",
+  "snapshotId": "20260102-120000-000",
+  "createdAt": "2026-01-02T12:00:00+00:00",
+  "items": [
+    {
+      "pid": 1001,
+      "name": "explorer.exe",
+      "parentPid": 800,
+      "executablePath": "C:\\Windows\\explorer.exe",
+      "startTime": "2026-01-01T09:00:00+00:00",
+      "workingSetBytes": 155000000,
+      "totalCpuSeconds": 55.1,
+      "unavailableFields": []
+    },
+    {
+      "pid": 1002,
+      "name": "svchost.exe",
+      "parentPid": 700,
+      "executablePath": "C:\\Windows\\System32\\svchost.exe",
+      "startTime": "2026-01-01T09:00:01+00:00",
+      "workingSetBytes": 31000000,
+      "totalCpuSeconds": 5.4,
+      "unavailableFields": []
+    },
+    {
+      "pid": 2044,
+      "name": "newtool.exe",
+      "parentPid": 1001,
+      "executablePath": "C:\\Users\\TestUser\\Downloads\\newtool.exe",
+      "startTime": "2026-01-02T11:45:00+00:00",
+      "workingSetBytes": 60000000,
+      "totalCpuSeconds": 1.2,
+      "unavailableFields": []
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+# Normalize line endings
+* text=auto
+
+# Shell scripts must keep LF (executed by sh on Windows via Git)
+*.sh text eol=lf
+.githooks/* text eol=lf
+
+# PowerShell scripts use CRLF
+*.ps1 text eol=crlf
+
+# C# / project files
+*.cs text
+*.csproj text
+*.sln text
+
+# Binary
+*.png binary
+*.ico binary

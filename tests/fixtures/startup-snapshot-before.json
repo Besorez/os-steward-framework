@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "category": "startup",
+  "snapshotId": "20260101-120000-000",
+  "createdAt": "2026-01-01T12:00:00+00:00",
+  "items": [
+    {
+      "source": "registry",
+      "scope": "machine",
+      "location": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "name": "SecurityHealth",
+      "command": "C:\\Windows\\System32\\SecurityHealthSystray.exe"
+    },
+    {
+      "source": "registry",
+      "scope": "user",
+      "location": "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "name": "TestSync",
+      "command": "C:\\Users\\TestUser\\AppData\\Local\\TestSync\\sync.exe --background"
+    }
+  ]
+}

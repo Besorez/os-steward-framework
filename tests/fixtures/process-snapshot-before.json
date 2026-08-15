@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "category": "processes",
+  "snapshotId": "20260101-120000-000",
+  "createdAt": "2026-01-01T12:00:00+00:00",
+  "items": [
+    {
+      "pid": 1001,
+      "name": "explorer.exe",
+      "parentPid": 800,
+      "executablePath": "C:\\Windows\\explorer.exe",
+      "startTime": "2026-01-01T09:00:00+00:00",
+      "workingSetBytes": 150000000,
+      "totalCpuSeconds": 42.5,
+      "unavailableFields": []
+    },
+    {
+      "pid": 1002,
+      "name": "svchost.exe",
+      "parentPid": 700,
+      "executablePath": "C:\\Windows\\System32\\svchost.exe",
+      "startTime": "2026-01-01T09:00:01+00:00",
+      "workingSetBytes": 30000000,
+      "totalCpuSeconds": 5.0,
+      "unavailableFields": []
+    },
+    {
+      "pid": 1003,
+      "name": "testapp.exe",
+      "parentPid": 1001,
+      "executablePath": "C:\\Users\\TestUser\\AppData\\Local\\TestApp\\testapp.exe",
+      "startTime": "2026-01-01T10:30:00+00:00",
+      "workingSetBytes": 80000000,
+      "totalCpuSeconds": 12.0,
+      "unavailableFields": []
+    }
+  ]
+}

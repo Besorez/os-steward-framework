@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/OsSteward.Core/OsSteward.Core.csproj" />
+    <Project Path="src/OsSteward.Mcp/OsSteward.Mcp.csproj" />
+    <Project Path="src/OsSteward.Platform.Windows/OsSteward.Platform.Windows.csproj" />
+    <Project Path="src/OsSteward.Privacy/OsSteward.Privacy.csproj" />
+    <Project Path="src/OsSteward.State/OsSteward.State.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/OsSteward.Core.Tests/OsSteward.Core.Tests.csproj" />
+    <Project Path="tests/OsSteward.Platform.Windows.Tests/OsSteward.Platform.Windows.Tests.csproj" />
+    <Project Path="tests/OsSteward.Privacy.Tests/OsSteward.Privacy.Tests.csproj" />
+    <Project Path="tests/OsSteward.State.Tests/OsSteward.State.Tests.csproj" />
+  </Folder>
+</Solution>

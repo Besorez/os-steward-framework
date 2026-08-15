@@ -1,0 +1,88 @@
+# ============================================================
+# OS Steward — defensive .gitignore
+# Canonical privacy rules: docs/privacy/Privacy-Model.md
+# The repository is STATELESS: no machine data may ever enter Git.
+# ============================================================
+
+# ---- Local runtime & workspace (reserved dev scratch dirs) ----
+.local/
+.runtime/
+.workspace/
+.temp/
+artifacts/local/
+artifacts/runtime/
+artifacts/generated/
+
+# ---- Machine state (must live in %LOCALAPPDATA%\OSSteward, never here) ----
+state/
+snapshots/
+baselines/
+findings/
+reports/
+captures/
+known-good/
+history/
+
+# ---- Diagnostic captures (never commit real machine captures) ----
+*.evtx
+*.etl
+*.pml
+*.dmp
+*.mdmp
+*.hdmp
+*.wpr
+*.wprp.user
+
+# ---- Local databases ----
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# ---- Secrets / credentials / keys ----
+.env
+.env.*
+*.pfx
+*.p12
+*.pem
+*.key
+*.snk
+*.crt.private
+secrets/
+credentials/
+*.credentials.json
+
+# ---- Claude Code local state ----
+.claude/settings.local.json
+.claude/local/
+.claude/history/
+
+# ---- IDE local configuration ----
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.DotSettings.user
+
+# ---- Build output ----
+bin/
+obj/
+out/
+TestResults/
+*.binlog
+*.trx
+
+# ---- Package / dependency caches (defensive) ----
+node_modules/
+packages/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.nuget/
+
+# ---- Logs ----
+*.log
+logs/

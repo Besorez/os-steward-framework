@@ -1,0 +1,17 @@
+[
+  {
+    "path": "scripts/privacy-guard.ps1",
+    "categories": ["MachineNamePattern", "CredentialToken", "MacAddress", "MachineGuid", "UserProfilePath", "PrivateKey"],
+    "reason": "The guard's own detection patterns and self-test cases intentionally contain synthetic examples of every category."
+  },
+  {
+    "path": "tests/OsSteward.Privacy.Tests/RedactorTests.cs",
+    "categories": ["UserProfilePath"],
+    "reason": "Redactor tests deliberately use a fictional profile named RealPerson (not on the synthetic exclusion list) to prove redaction rewrites unknown user profiles."
+  },
+  {
+    "path": "tests/OsSteward.Platform.Windows.Tests/*",
+    "categories": [],
+    "reason": "Reserved: add explicit categories here only after review if a synthetic fixture ever triggers a false positive."
+  }
+]
