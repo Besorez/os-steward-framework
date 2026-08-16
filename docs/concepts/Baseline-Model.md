@@ -19,6 +19,9 @@ Item identity keys:
 |---|---|---|
 | processes | `name \| executablePath` | presence only (a restarted process is not a "change") |
 | startup | `location \| name` | `command` |
+| services | `name` | `pathName`, `startMode`, `account` — configuration only; state flips (running/stopped) are normal operation |
+
+(Implemented in `src/OsSteward.Core/Snapshots/CategoryComparers.cs`.)
 
 Duplicate keys collapse to first occurrence. The comparer detects deviation
 only — it never judges whether a change is good, bad, or malicious

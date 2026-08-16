@@ -16,7 +16,10 @@ Last updated: 2026-08-16
 | Redaction layer | `src/OsSteward.Privacy` | Verified in smoke + live runs: zero identifier leaks |
 | Local runtime state | `src/OsSteward.State` | `%LOCALAPPDATA%\OSSteward`, `OSSTEWARD_HOME` override, snapshot + preferences stores |
 | Windows collectors | `src/OsSteward.Platform.Windows` | Process (WMI), performance (sampling + counters), startup (registry + folders), Authenticode, SHA-256 |
-| MCP server, 9 tools | `src/OsSteward.Mcp` | ModelContextProtocol 2.2.0, stdio; contract: `docs/architecture/Mcp-Tools.md` |
+| MCP server, 11 tools | `src/OsSteward.Mcp` | ModelContextProtocol 2.2.0, stdio; contract: `docs/architecture/Mcp-Tools.md` |
+| Services collector + tools | `src/OsSteward.Platform.Windows/ServiceCollector.cs` | `os_service_list` / `os_service_inspect`; snapshot category `services` (config-only diff); live-verified 2026-08-16 (296 services, signature + sha256 on Winmgmt) |
+| CI workflow | `.github/workflows/ci.yml` | Build + tests + guard self-tests on windows-latest |
+| Project MCP registration + dev skill | `.mcp.json`, `.claude/skills/` | Framework usable conversationally in dev sessions (from next session start) |
 | Live scenario verification | — | 2026-08-16: full "why is my computer slow" flow on real machine — perf snapshot → inspect (signed binary, sha256, ancestry) → snapshots (313 procs / 13 startup) → compare → honest invalidRequest; redaction PASS |
 | Claude plugin manifest | `.claude-plugin/plugin.json` | |
 | Skill: investigate-slowdown | `skills/investigate-slowdown/SKILL.md` | Primary V0.1 scenario (§47) |
@@ -26,15 +29,12 @@ Last updated: 2026-08-16
 
 ## Ready Next
 
-- Live plugin session test: install the plugin into Claude Code and drive
-  the skill conversationally (server + tools already verified end-to-end
-  via stdio driver)
-- Windows collector smoke tests (live-machine xUnit tests for process /
-  performance / startup collectors)
-- CI workflow (`.github/workflows/`): build + test + guard self-tests on
-  push/PR
-- Services collector (`os.service.list` / `os.service.inspect`) — the next
-  telemetry increment per the critical path
+- Conversational session test: restart a Claude Code session in this repo
+  (picks up `.mcp.json` + the dev skill) and ask "why is my computer slow"
+- Windows collector smoke tests for process / performance / startup
+  collectors (services already has live tests)
+- Scheduled-tasks collector (`os.task.list`) — next telemetry increment
+- Verify the CI workflow's first run on GitHub Actions
 
 ## Planned Later
 

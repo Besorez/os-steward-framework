@@ -37,8 +37,10 @@ user-profile path in any response.
 | `os_process_tree` | `pid?` | `{roots[]}` nested `{pid, name, executablePath, children[]}`; subtree when pid given | no |
 | `os_performance_snapshot` | `sampleMilliseconds?` (100–5000, default 500) | cpuTotalPercent, processorCount, memory `{totalBytes, availableBytes, usedPercent}`, disk `{percentDiskTime, avgQueueLength}` or null+warning, topCpu[], topMemory[], sampleMilliseconds | no |
 | `os_startup_list` | — | `{count, entries[]}`: source registry\|folder, scope machine\|user, location, name, command | no |
-| `os_snapshot_create` | `category` (`processes`\|`startup`) | `{snapshotId, category, itemCount, storageRoot}` | local state file |
-| `os_baseline_compare` | `category`, `referenceSnapshotId?` | reference metadata + addedCount/removedCount/changedCount + added[]/removed[]/changed[] (see [Baseline-Model](../concepts/Baseline-Model.md)) | no |
+| `os_service_list` | — | `{count, services[]}`: name, displayName, state, startMode, processId, pathName, account. No descriptions/signatures (OSF-INV-011). | no |
+| `os_service_inspect` | `name` (short name) | adds description, resolved executablePath (quoted + unquoted-with-spaces command lines), signature, sha256 | no |
+| `os_snapshot_create` | `category` (`processes`\|`startup`\|`services`) | `{snapshotId, category, itemCount, storageRoot}` | local state file |
+| `os_baseline_compare` | `category`, `referenceSnapshotId?` | reference metadata + addedCount/removedCount/changedCount + added[]/removed[]/changed[]; identity keys and changed-field rules per category live in `CategoryComparers` (services: config changes only, state flips ignored) — see [Baseline-Model](../concepts/Baseline-Model.md) | no |
 | `os_config_get` | — | `{language, allowedLanguages}` | no |
 | `os_config_set` | `key` (`language`), `value` (`auto`\|`en`\|`uk`) | `{language}` | local config file |
 

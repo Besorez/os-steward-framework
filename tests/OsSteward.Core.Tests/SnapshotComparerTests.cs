@@ -40,8 +40,8 @@ public class SnapshotComparerTests
 
         var diff = SnapshotComparer.Compare(
             before.Items, after.Items,
-            e => $"{e.Location}|{e.Name}",
-            (b, a) => b.Command == a.Command ? [] : new[] { "command" });
+            CategoryComparers.StartupKey,
+            CategoryComparers.StartupChangedFields);
 
         Assert.Single(diff.Added);
         Assert.Equal("NewTool", diff.Added[0].Name);
@@ -49,6 +49,28 @@ public class SnapshotComparerTests
         Assert.Single(diff.Changed);
         Assert.Equal(["command"], diff.Changed[0].ChangedFields);
         Assert.Equal("TestSync", diff.Changed[0].After.Name);
+    }
+
+    [Fact]
+    public void ServiceDiff_FlagsConfigurationChanges_IgnoresStateFlips()
+    {
+        var before = LoadFixture<ServiceRecord>("services-snapshot-before.json");
+        var after = LoadFixture<ServiceRecord>("services-snapshot-after.json");
+
+        var diff = SnapshotComparer.Compare(
+            before.Items, after.Items,
+            CategoryComparers.ServiceKey,
+            CategoryComparers.ServiceChangedFields);
+
+        Assert.Single(diff.Added);
+        Assert.Equal("NewAgent", diff.Added[0].Name);
+        Assert.Single(diff.Removed);
+        Assert.Equal("OldAgent", diff.Removed[0].Name);
+
+        // Spooler only flipped Running->Stopped: not a configuration change.
+        Assert.Single(diff.Changed);
+        Assert.Equal("TestSvc", diff.Changed[0].After.Name);
+        Assert.Equal(["startMode"], diff.Changed[0].ChangedFields);
     }
 
     [Fact]

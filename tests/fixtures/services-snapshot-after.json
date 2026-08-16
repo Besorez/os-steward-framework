@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "category": "services",
+  "snapshotId": "20260102-120000-000",
+  "createdAt": "2026-01-02T12:00:00+00:00",
+  "items": [
+    {
+      "name": "Spooler",
+      "displayName": "Print Spooler",
+      "state": "Stopped",
+      "startMode": "Auto",
+      "processId": null,
+      "pathName": "C:\\Windows\\System32\\spoolsv.exe",
+      "account": "LocalSystem",
+      "unavailableFields": []
+    },
+    {
+      "name": "TestSvc",
+      "displayName": "Test Service",
+      "state": "Running",
+      "startMode": "Auto",
+      "processId": 3300,
+      "pathName": "\"C:\\Program Files\\TestVendor\\testsvc.exe\" --service",
+      "account": "NT AUTHORITY\\LocalService",
+      "unavailableFields": []
+    },
+    {
+      "name": "NewAgent",
+      "displayName": "New Agent",
+      "state": "Running",
+      "startMode": "Auto",
+      "processId": 4500,
+      "pathName": "C:\\Users\\TestUser\\AppData\\Local\\NewVendor\\newagent.exe",
+      "account": "LocalSystem",
+      "unavailableFields": []
+    }
+  ]
+}

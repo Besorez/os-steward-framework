@@ -48,6 +48,16 @@ public static class SnapshotTools
                     break;
                 }
 
+                case SnapshotCategories.Services:
+                {
+                    var (records, collectWarnings) = new ServiceCollector().CollectAll();
+                    store.Save(new Snapshot<ServiceRecord>(
+                        Snapshot<ServiceRecord>.CurrentSchemaVersion, category, snapshotId, createdAt, records));
+                    itemCount = records.Count;
+                    warnings = collectWarnings;
+                    break;
+                }
+
                 default:
                     return ToolEnvelope.Fail(
                         "os_snapshot_create", ErrorKind.InvalidRequest,
@@ -86,8 +96,7 @@ public static class SnapshotTools
 
                     var (current, warnings) = new ProcessCollector().CollectAll();
                     var diff = SnapshotComparer.Compare(
-                        reference.Items, current,
-                        p => $"{p.Name}|{p.ExecutablePath ?? "?"}");
+                        reference.Items, current, CategoryComparers.ProcessKey);
                     return DiffResult(reference.SnapshotId, reference.CreatedAt, category, diff, warnings);
                 }
 
@@ -104,8 +113,26 @@ public static class SnapshotTools
                     var (current, warnings) = new StartupCollector().Collect();
                     var diff = SnapshotComparer.Compare(
                         reference.Items, current,
-                        e => $"{e.Location}|{e.Name}",
-                        (before, after) => before.Command == after.Command ? [] : new[] { "command" });
+                        CategoryComparers.StartupKey,
+                        CategoryComparers.StartupChangedFields);
+                    return DiffResult(reference.SnapshotId, reference.CreatedAt, category, diff, warnings);
+                }
+
+                case SnapshotCategories.Services:
+                {
+                    var reference = referenceSnapshotId is null
+                        ? store.LoadLatest<ServiceRecord>(category)
+                        : store.Load<ServiceRecord>(category, referenceSnapshotId);
+                    if (reference is null)
+                    {
+                        return NoReference(category, referenceSnapshotId);
+                    }
+
+                    var (current, warnings) = new ServiceCollector().CollectAll();
+                    var diff = SnapshotComparer.Compare(
+                        reference.Items, current,
+                        CategoryComparers.ServiceKey,
+                        CategoryComparers.ServiceChangedFields);
                     return DiffResult(reference.SnapshotId, reference.CreatedAt, category, diff, warnings);
                 }
 

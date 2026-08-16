@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "os-steward": {
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "src/OsSteward.Mcp/OsSteward.Mcp.csproj"
+      ]
+    }
+  }
+}

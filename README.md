@@ -39,9 +39,12 @@ configurable interaction language.
   line, owner, parent chain, Authenticode signature, SHA-256) → process
   tree → comparison against a stored snapshot → evidence-backed explanation
   with ranked hypotheses.
-- Inventory startup entries (registry Run/RunOnce + startup folders).
-- Capture local snapshots of processes/startup and diff current state
-  against them (added / removed / changed).
+- Inventory startup entries (registry Run/RunOnce + startup folders) and
+  Windows services (state, start mode, account, binary signature and hash
+  on inspection).
+- Capture local snapshots of processes/startup/services and diff current
+  state against them (added / removed / changed; service diffs flag
+  configuration changes, not routine state flips).
 - Respond in your language (`auto`/`en`/`uk`), keeping all internal
   schemas English.
 
@@ -108,10 +111,11 @@ dotnet test
 The repository is a Claude Code plugin (`.claude-plugin/plugin.json`)
 bundling:
 
-- **MCP** — the `os-steward` stdio server with nine tools:
+- **MCP** — the `os-steward` stdio server with eleven tools:
   `os_process_list` · `os_process_inspect` · `os_process_tree` ·
-  `os_performance_snapshot` · `os_startup_list` · `os_snapshot_create` ·
-  `os_baseline_compare` · `os_config_get` · `os_config_set`
+  `os_performance_snapshot` · `os_startup_list` · `os_service_list` ·
+  `os_service_inspect` · `os_snapshot_create` · `os_baseline_compare` ·
+  `os_config_get` · `os_config_set`
 - **Skills** — `investigate-slowdown` (more are planned; skills are added
   incrementally, each with evidence rules and stop conditions)
 - **Hooks** — the destructive-command safety guard

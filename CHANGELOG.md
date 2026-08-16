@@ -7,6 +7,17 @@ semantic intent (pre-1.0: minor = capability milestone).
 ## [Unreleased]
 
 ### Added
+- **Services collector** (`ServiceCollector`, WMI Win32_Service) with two
+  new MCP tools: `os_service_list`, `os_service_inspect` (description,
+  executable resolution for quoted and unquoted-with-spaces command lines,
+  Authenticode signature, SHA-256). Snapshot category `services` with
+  configuration-only change detection (state flips ignored) via the new
+  shared `CategoryComparers`.
+- **CI workflow** (`.github/workflows/ci.yml`): Windows build (warnings as
+  errors), full test suite, and both guard self-test suites on push/PR.
+- **Project MCP registration** (`.mcp.json`) and a dev copy of the
+  `investigate-slowdown` skill under `.claude/skills/` so development
+  sessions in this repository can drive the framework conversationally.
 - Documentation set: full README, SECURITY, CONTRIBUTING, architecture
   decision records (ADR-0001…0006), concept docs (Snapshot, Baseline,
   Finding), System Overview, MCP tool-contract catalog, documentation

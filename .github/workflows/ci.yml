@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Build (warnings are errors)
+        run: dotnet build --configuration Release --nologo
+
+      # Includes guard-script self-tests via GuardScriptTests
+      - name: Test
+        run: dotnet test --configuration Release --nologo
+
+      - name: Privacy guard self-test
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/privacy-guard.ps1 -SelfTest
+
+      - name: Safety guard self-test
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File hooks/safety-guard.ps1 -SelfTest
