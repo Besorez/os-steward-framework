@@ -14,14 +14,16 @@ artifacts/runtime/
 artifacts/generated/
 
 # ---- Machine state (must live in %LOCALAPPDATA%\OSSteward, never here) ----
-state/
-snapshots/
-baselines/
-findings/
-reports/
-captures/
-known-good/
-history/
+# Anchored to the repo root: unanchored patterns would (and once did)
+# swallow source directories like src/OsSteward.Core/Snapshots/.
+/state/
+/snapshots/
+/baselines/
+/findings/
+/reports/
+/captures/
+/known-good/
+/history/
 
 # ---- Diagnostic captures (never commit real machine captures) ----
 *.evtx
