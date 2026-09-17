@@ -33,9 +33,12 @@ reasoning layer under OSF-INV-006.
 skills/           investigate-slowdown (more per §12: incremental addition)
 hooks/            safety-guard.ps1 + hooks.json
 scripts/          privacy-guard.ps1 (+allowlist), install-git-hooks.ps1
+scripts/playbooks/ small read-only / reversible scripts behind docs/playbooks, grouped
+                  (network, remote-access, storage, power), README per group
 src/              five C# projects (above)
 tests/            four xUnit projects + tests/fixtures (synthetic only)
 docs/             this documentation tree; STATUS.md is the live status board
+docs/playbooks/   field-verified stewardship cases (generalized, no machine data)
 ```
 
 Reserved (documented here, intentionally not created empty): `agents/`

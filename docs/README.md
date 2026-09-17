@@ -23,6 +23,11 @@ Navigation hub. One concept = one canonical document; start with
 - **security/** — [Safety-Model.md](security/Safety-Model.md) — structural
   guarantees, safety hook, error honesty, ActionProposal design (canonical
   safety doc)
+- **playbooks/** — [README](playbooks/README.md) — field-verified
+  stewardship cases in generalized form (remote machine access, storage
+  cleanup, paired power management, repurposing a workstation, remote
+  PowerShell gotchas), each backed by small scripts under
+  [`scripts/playbooks/`](../scripts/playbooks/README.md)
 
 ## Conventions
 

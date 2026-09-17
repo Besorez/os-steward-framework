@@ -7,6 +7,19 @@ semantic intent (pre-1.0: minor = capability milestone).
 ## [Unreleased]
 
 ### Added
+- **Playbooks** (`docs/playbooks/`): field-verified stewardship cases in
+  generalized form — remote Windows machine access (discovery blockers,
+  SSH/SMB/RDP stack, Microsoft-account RDP failure ladder with Security-log
+  evidence), dev-machine storage cleanup (inventory method, artefact
+  taxonomy, owner-executed removal pattern), paired power management
+  (Wake-on-LAN + sleep on event + watchdog), repurposing an old
+  workstation (role, disk layout, OS and VPN choice, pre-wipe checklist),
+  remote PowerShell gotchas.
+- **Playbook scripts** (`scripts/playbooks/`): 27 small, single-purpose
+  PowerShell scripts in four groups (`network`, `remote-access`, `storage`,
+  `power`) with a README per group linking back to the playbooks. All are
+  read-only or reversible; storage scripts produce dry-run proposals and
+  never delete (OSF-INV-001).
 - **Services collector** (`ServiceCollector`, WMI Win32_Service) with two
   new MCP tools: `os_service_list`, `os_service_inspect` (description,
   executable resolution for quoted and unquoted-with-spaces command lines,

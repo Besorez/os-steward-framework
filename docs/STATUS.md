@@ -2,7 +2,7 @@
 
 Current milestone: **V0.1 — Read-Only Foundation**
 
-Last updated: 2026-08-16
+Last updated: 2026-09-17
 
 ## Implemented (code exists, tests pass)
 
@@ -26,6 +26,7 @@ Last updated: 2026-08-16
 | Tests | `tests/` | 30 xUnit tests + 42 guard self-test cases, all passing |
 | Language preference (auto/en/uk) | `os_config_get` / `os_config_set` + skill instructions | |
 | Documentation set | `docs/` + root | README (§34 structure), SECURITY, CONTRIBUTING, CHANGELOG, System-Overview, Mcp-Tools, ADR-0001…0006, concept docs (Snapshot/Baseline/Finding), navigation hubs, GitHub issue/PR templates |
+| Playbooks + scripts | `docs/playbooks/`, `scripts/playbooks/` | Five field-verified cases (2026-09: remote Windows machine access, dev-machine storage cleanup, paired power management, repurposing an old workstation, remote PowerShell gotchas) and 27 small read-only / reversible scripts in four groups with per-group READMEs; no deletion scripts by design (OSF-INV-001) |
 
 ## Ready Next
 
