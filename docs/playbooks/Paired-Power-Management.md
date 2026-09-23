@@ -52,6 +52,46 @@ primary is powered off by button or crashes. The watchdog covers those.
 - Wake from S5 (full shutdown) was not verified on the hardware in the
   case; the playbook is stated for S3. Do not shut the peer down, sleep it.
 
+## Failure mode: the wake / idle-sleep ping-pong
+
+> Field-verified 2026-09, a week after the setup above: ~40 sleep/wake
+> cycles per day on the peer; the owner noticed that the box kept dropping
+> off and woke up on the first access to its shared HDD.
+
+**Evidence** ([Get-SleepWakeHistory.ps1](../../scripts/playbooks/power/Get-SleepWakeHistory.ps1)):
+dozens of Kernel-Power 42 per day, almost all `Sleep Reason: System Idle`,
+each 2–3 minutes after a Power-Troubleshooter 1; `powercfg /lastwake`
+names the NIC; the plan's normal sleep timeout (STANDBYIDLE) is **0 / Never**.
+Only a handful of sleeps came from the watchdog (its own log).
+
+**Mechanism.** Two defaults combine:
+1. *Wake on Pattern Match* is on in the NIC driver and in NDIS. An SMB
+   connection attempt, name resolution or other LAN traffic addressed to
+   the sleeping box wakes it. (Enabling magic-packet wake does not turn
+   this off; it was already on.)
+2. After a wake that no human caused, Windows is in the *unattended* state
+   and uses the hidden **System unattended sleep timeout**
+   (`7bc4a2f9-d8fc-4469-b07b-33eb785aaca0`, default 120 s) — not the normal
+   sleep timeout. With no input and no power request (an SMB session does
+   not hold one), the box sleeps again two minutes later.
+
+Add a 20-minute HDD spin-down (DISKIDLE 1200) and the data disk also goes
+through a start/stop cycle with every round.
+
+**Fix** (both reversible, on the peer, as admin):
+- [Set-UnattendedIdlePolicy.ps1](../../scripts/playbooks/power/Set-UnattendedIdlePolicy.ps1) —
+  unattended timeout 0 and disk idle 0, so the watchdog is the only thing
+  that decides when the peer sleeps.
+- [Set-WakeOnMagicOnly.ps1](../../scripts/playbooks/power/Set-WakeOnMagicOnly.ps1) —
+  pattern wake off (driver *and* `Set-NetAdapterPowerManagement`; the
+  driver keyword alone leaves NDIS reporting it enabled), EEE off, stray
+  wake-armed devices (a GPU USB-C controller in the case) disarmed. Only the
+  primary's magic packet wakes the peer now.
+
+Order matters: set the unattended timeout **first**. Disabling pattern wake
+alone still leaves every magic-packet wake ending in a 2-minute re-sleep
+whenever the primary is not reachable over ping at that moment.
+
 ## Verification
 
 1. With no `Active` session on the peer: run the sleep script → ping times

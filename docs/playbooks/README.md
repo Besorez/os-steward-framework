@@ -31,7 +31,7 @@
 |---|---|
 | [Remote-Windows-Machine-Access](Remote-Windows-Machine-Access.md) | Reaching and administering a second Windows machine on the same LAN: discovery, the blockers that hide it, SSH/SMB/RDP setup, Microsoft-account RDP failures, prompt suppression |
 | [Dev-Machine-Storage-Cleanup](Dev-Machine-Storage-Cleanup.md) | Reclaiming space on a game-development machine: inventory method, artefact taxonomy (Unreal, Visual Studio, caches), tiered decisions, owner-executed removal |
-| [Paired-Power-Management](Paired-Power-Management.md) | Making a secondary machine sleep and wake together with the primary one: Wake-on-LAN, sleep on event, watchdog with an opt-out sentinel |
+| [Paired-Power-Management](Paired-Power-Management.md) | Making a secondary machine sleep and wake together with the primary one: Wake-on-LAN, sleep on event, watchdog with an opt-out sentinel; fixing the wake / idle-sleep ping-pong (pattern wake + hidden unattended timeout) |
 | [Repurposing-An-Old-Workstation](Repurposing-An-Old-Workstation.md) | Deciding what an old workstation becomes (build host, storage, VPN entry, VM host), disk layout, OS choice, VPN choice, pre-wipe checklist |
 | [Remote-PowerShell-Gotchas](Remote-PowerShell-Gotchas.md) | Traps met when driving Windows over SSH with Windows PowerShell 5.1: encoding, quoting, localized names, junction double counting, sessions dropped by NIC changes |
 

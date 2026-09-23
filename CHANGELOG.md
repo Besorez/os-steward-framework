@@ -7,6 +7,10 @@ semantic intent (pre-1.0: minor = capability milestone).
 ## [Unreleased]
 
 ### Added
+- **Playbook case: wake / idle-sleep ping-pong** in Paired-Power-Management
+  (NIC pattern-match wake + hidden 120 s unattended sleep timeout causing
+  ~40 cycles a day) with three power scripts: `Get-SleepWakeHistory`
+  (read-only), `Set-UnattendedIdlePolicy`, `Set-WakeOnMagicOnly`.
 - **Playbooks** (`docs/playbooks/`): field-verified stewardship cases in
   generalized form — remote Windows machine access (discovery blockers,
   SSH/SMB/RDP stack, Microsoft-account RDP failure ladder with Security-log
