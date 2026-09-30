@@ -7,6 +7,13 @@ semantic intent (pre-1.0: minor = capability milestone).
 ## [Unreleased]
 
 ### Added
+- **Playbook: remote Mac access from Windows** (`Remote-Mac-Access-From-Windows`):
+  discovery by RFB/SSH banners, sudo only via `ssh -t` in a titled window,
+  SMB login needing an SMB-NT hash (re-set the same password as the user),
+  Apple VNC security-type order and forcing VncAuth (TigerVNC flags, noVNC
+  patch), scaled Retina screen via noVNC + websockify, keyboard layout and
+  laptop sleep traps. New script group `mac-access` (10 scripts: 7 operator
+  PowerShell, 3 Mac bash; read-only RFB probes, reversible configuration).
 - **Playbook case: wake / idle-sleep ping-pong** in Paired-Power-Management
   (NIC pattern-match wake + hidden 120 s unattended sleep timeout causing
   ~40 cycles a day) with three power scripts: `Get-SleepWakeHistory`

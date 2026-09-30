@@ -1,6 +1,6 @@
 # Playbook scripts
 
-Small, single-purpose PowerShell scripts that back the cases in
+Small, single-purpose PowerShell scripts (plus a few bash scripts run on a Mac) that back the cases in
 [docs/playbooks](../../docs/playbooks/README.md). One script = one action,
 grouped by topic; every script has `Get-Help`-style header comments with
 purpose, parameters, an example and (for configuration scripts) the
@@ -17,6 +17,7 @@ constants; examples use RFC-5737 addresses; state and logs go to
 |---|---|---|
 | [network/](network/README.md) | LAN sweep, Wake-on-LAN | [Remote-Windows-Machine-Access](../../docs/playbooks/Remote-Windows-Machine-Access.md), [Paired-Power-Management](../../docs/playbooks/Paired-Power-Management.md) |
 | [remote-access/](remote-access/README.md) | network profile, firewall groups by ID, OpenSSH server, SSH admin key, drive shares, share account, RDP host, no-sleep, report | [Remote-Windows-Machine-Access](../../docs/playbooks/Remote-Windows-Machine-Access.md) |
+| [mac-access/](mac-access/README.md) | SSH key + alias, sudo runner, SMB-NT enablement (Mac), drive mapping, legacy VNC password (Mac), RFB security-type probe, VncAuth check, vncpasswd file, scaled noVNC window, no sleep on AC (Mac) | [Remote-Mac-Access-From-Windows](../../docs/playbooks/Remote-Mac-Access-From-Windows.md) |
 | [storage/](storage/README.md) | volume summary, folder sizes, junk folders, large files, installed apps, engine folders, build-artefact and cache candidates (dry runs) | [Dev-Machine-Storage-Cleanup](../../docs/playbooks/Dev-Machine-Storage-Cleanup.md) |
 | [power/](power/README.md) | suspend, sleep watchdog, sleep/wake peer, task installers, NIC wake arming | [Paired-Power-Management](../../docs/playbooks/Paired-Power-Management.md) |
 

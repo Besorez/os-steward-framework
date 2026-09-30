@@ -52,8 +52,9 @@ configurable interaction language.
 
 Field-verified cases, written up generically so they apply to any machine:
 [docs/playbooks](docs/playbooks/README.md) — remote access to a second
-Windows machine, storage cleanup on a development box, paired sleep/wake
-of two machines, repurposing an old workstation, remote PowerShell traps.
+Windows machine, shell/file/screen access to a Mac from Windows, storage
+cleanup on a development box, paired sleep/wake of two machines,
+repurposing an old workstation, remote PowerShell traps.
 Each is backed by small read-only or reversible scripts under
 [scripts/playbooks](scripts/playbooks/README.md), one script per action,
 grouped by topic, navigable from here down to the file.

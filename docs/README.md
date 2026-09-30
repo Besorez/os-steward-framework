@@ -25,8 +25,9 @@ Navigation hub. One concept = one canonical document; start with
   safety doc)
 - **playbooks/** — [README](playbooks/README.md) — field-verified
   stewardship cases in generalized form (remote machine access, storage
-  cleanup, paired power management, repurposing a workstation, remote
-  PowerShell gotchas), each backed by small scripts under
+  cleanup, paired power management, remote Mac access from Windows,
+  repurposing a workstation, remote PowerShell gotchas), each backed by
+  small scripts under
   [`scripts/playbooks/`](../scripts/playbooks/README.md)
 
 ## Conventions

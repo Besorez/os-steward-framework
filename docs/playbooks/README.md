@@ -33,6 +33,7 @@
 | [Dev-Machine-Storage-Cleanup](Dev-Machine-Storage-Cleanup.md) | Reclaiming space on a game-development machine: inventory method, artefact taxonomy (Unreal, Visual Studio, caches), tiered decisions, owner-executed removal |
 | [Paired-Power-Management](Paired-Power-Management.md) | Making a secondary machine sleep and wake together with the primary one: Wake-on-LAN, sleep on event, watchdog with an opt-out sentinel; fixing the wake / idle-sleep ping-pong (pattern wake + hidden unattended timeout) |
 | [Repurposing-An-Old-Workstation](Repurposing-An-Old-Workstation.md) | Deciding what an old workstation becomes (build host, storage, VPN entry, VM host), disk layout, OS choice, VPN choice, pre-wipe checklist |
+| [Remote-Mac-Access-From-Windows](Remote-Mac-Access-From-Windows.md) | Shell, file and screen access to a MacBook from Windows: SSH key, SMB-NT hash for Windows logins, VNC security-type order (forcing VncAuth), scaled Retina screen via noVNC, keyboard layout and sleep traps |
 | [Remote-PowerShell-Gotchas](Remote-PowerShell-Gotchas.md) | Traps met when driving Windows over SSH with Windows PowerShell 5.1: encoding, quoting, localized names, junction double counting, sessions dropped by NIC changes |
 
 ## Scripts
@@ -46,5 +47,6 @@ playbook sections:
 |---|---|
 | [network/](../../scripts/playbooks/network/README.md) | LAN sweep with port probe; Wake-on-LAN |
 | [remote-access/](../../scripts/playbooks/remote-access/README.md) | Nine reversible steps from "invisible box" to SSH + SMB + RDP, plus a read-only report |
+| [mac-access/](../../scripts/playbooks/mac-access/README.md) | Ten scripts for a Mac: SSH key + alias, sudo runner, SMB-NT enablement, drive mapping, legacy VNC password, RFB probes (security types, password check), vncpasswd file, scaled noVNC window, no sleep on AC |
 | [storage/](../../scripts/playbooks/storage/README.md) | Eight read-only inventory scripts, including the two dry-run *proposal* generators (build artefacts, caches) |
 | [power/](../../scripts/playbooks/power/README.md) | Suspend, watchdog, peer sleep/wake wrappers, task installers, NIC wake arming |
