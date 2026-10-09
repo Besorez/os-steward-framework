@@ -63,6 +63,20 @@ Contents of these folders are recreated on demand; the folders stay:
 - `Dism /Online /Cleanup-Image /StartComponentCleanup /ResetBase` — often
   yields little on a recently serviced image; still cheap.
 
+Two places that are easy to miss:
+
+- **UE 5.4+ local DDC lives in Zen**, not `DerivedDataCache`:
+  `%LOCALAPPDATA%\UnrealEngine\Common\Zen\Data` (~14 GB). Remove `Data`
+  only, keep `Install`, and only while no `zenserver` process is running.
+- **AI coding-agent temp**: `%LOCALAPPDATA%\Temp\<agent>\` can grow to
+  10+ GB of edit-diff snapshots. Per-session scratch folders next to it may
+  belong to sessions that are still running, so leave those alone.
+
+"Stale workspaces" are rarely where the space is: before you blame git
+worktrees, list them (`git worktree list` + last commit date + dirty count
++ commits ahead of main). If they are fresh and dirty, they are live work.
+In that case clear only their `Intermediate`.
+
 Hibernation and page files belong to the owner's power design, not to a
 cleanup.
 
