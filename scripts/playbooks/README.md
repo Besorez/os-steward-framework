@@ -1,6 +1,6 @@
 # Playbook scripts
 
-Small, single-purpose PowerShell scripts (plus a few bash scripts run on a Mac) that back the cases in
+Small, single-purpose PowerShell scripts (plus a few bash scripts run on a Mac or a Steam Deck) that back the cases in
 [docs/playbooks](../../docs/playbooks/README.md). One script = one action,
 grouped by topic; every script has `Get-Help`-style header comments with
 purpose, parameters, an example and (for configuration scripts) the
@@ -20,6 +20,7 @@ constants; examples use RFC-5737 addresses; state and logs go to
 | [mac-access/](mac-access/README.md) | SSH key + alias, sudo runner, SMB-NT enablement (Mac), drive mapping, legacy VNC password (Mac), RFB security-type probe, VncAuth check, vncpasswd file, scaled noVNC window, no sleep on AC (Mac) | [Remote-Mac-Access-From-Windows](../../docs/playbooks/Remote-Mac-Access-From-Windows.md) |
 | [storage/](storage/README.md) | volume summary, folder sizes, junk folders, large files, installed apps, engine folders, build-artefact and cache candidates (dry runs) | [Dev-Machine-Storage-Cleanup](../../docs/playbooks/Dev-Machine-Storage-Cleanup.md) |
 | [power/](power/README.md) | suspend, sleep watchdog, sleep/wake peer, task installers, NIC wake arming | [Paired-Power-Management](../../docs/playbooks/Paired-Power-Management.md) |
+| [steamos/](steamos/README.md) | glibc-needs check, private glibc runtime, loader launcher (bash, on a Steam Deck) | [Native-Linux-Port-On-SteamOS](../../docs/playbooks/Native-Linux-Port-On-SteamOS.md) |
 
 Run any script with `-?` for its help block, e.g.
 `powershell -NoProfile -File scripts\playbooks\storage\Get-FolderSizes.ps1 -?`.

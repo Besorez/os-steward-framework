@@ -35,6 +35,7 @@
 | [Repurposing-An-Old-Workstation](Repurposing-An-Old-Workstation.md) | Deciding what an old workstation becomes (build host, storage, VPN entry, VM host), disk layout, OS choice, VPN choice, pre-wipe checklist |
 | [Remote-Mac-Access-From-Windows](Remote-Mac-Access-From-Windows.md) | Shell, file and screen access to a MacBook from Windows: SSH key, SMB-NT hash for Windows logins, VNC security-type order (forcing VncAuth), scaled Retina screen via noVNC, keyboard layout and sleep traps |
 | [Remote-PowerShell-Gotchas](Remote-PowerShell-Gotchas.md) | Traps met when driving Windows over SSH with Windows PowerShell 5.1: encoding, quoting, localized names, junction double counting, sessions dropped by NIC changes |
+| [Native-Linux-Port-On-SteamOS](Native-Linux-Port-On-SteamOS.md) | Running a native Linux build from a release page on a Steam Deck: game-data import, sleep during long copies, a build that needs a newer glibc (private loader + runtime folder), plugin lookup next to the loader, Steam shortcut |
 
 ## Scripts
 
@@ -50,3 +51,4 @@ playbook sections:
 | [mac-access/](../../scripts/playbooks/mac-access/README.md) | Ten scripts for a Mac: SSH key + alias, sudo runner, SMB-NT enablement, drive mapping, legacy VNC password, RFB probes (security types, password check), vncpasswd file, scaled noVNC window, no sleep on AC |
 | [storage/](../../scripts/playbooks/storage/README.md) | Eight read-only inventory scripts, including the two dry-run *proposal* generators (build artefacts, caches) |
 | [power/](../../scripts/playbooks/power/README.md) | Suspend, watchdog, peer sleep/wake wrappers, task installers, NIC wake arming |
+| [steamos/](../../scripts/playbooks/steamos/README.md) | glibc-needs check, private glibc runtime builder, loader launcher generator (bash, run on the Deck) |
